@@ -1,0 +1,40 @@
+enum StatusEnum {
+    SUCCESS
+    ERROR
+}
+
+enum ActionEnum {
+    ADD
+    SUB
+}
+
+type Query {
+    hello(name: String = "Good"): String!
+    count: Int!
+}
+
+type Mutation {
+    addCount(step: Int = 1, action: ActionEnum = ADD): CountResult!
+}
+
+type CountResult {
+    status: StatusEnum!
+    count: Int!
+}
+
+type CountSub {
+    action: ActionEnum!
+    count: Int!
+}
+
+type Counter {
+    count: Int!
+    countStr: String
+}
+
+type Subscription {
+    """
+    Bla bla
+    """
+    counterOnChange: CountSub!
+}
